@@ -279,5 +279,26 @@ class Client(datastore.Client[Config]):
         res = [r for r in results]
         return res, format_sql(sql, params)
 
+    async def get_service_by_id(self, service_id: int):
+        async with self.__async_engine.connect() as conn:
+            sql = "SELECT * FROM services WHERE id = :id"
+            result = await conn.execute(text(sql), {"id": service_id})
+            row = result.mappings().first()
+            return models.Service.model_validate(row) if row else None
+
+    async def get_kursus_by_id(self, kursus_id: int):
+        async with self.__async_engine.connect() as conn:
+            sql = "SELECT * FROM kursus WHERE id = :id"
+            result = await conn.execute(text(sql), {"id": kursus_id})
+            row = result.mappings().first()
+            return models.Kursus.model_validate(row) if row else None
+
+    async def get_faq_by_id(self, faq_id: int):
+        async with self.__async_engine.connect() as conn:
+            sql = "SELECT * FROM faqs WHERE id = :id"
+            result = await conn.execute(text(sql), {"id": faq_id})
+            row = result.mappings().first()
+            return models.Faq.model_validate(row) if row else None
+
     async def close(self):
         await self.__async_engine.dispose()
