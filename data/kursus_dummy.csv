@@ -1,0 +1,16 @@
+id,course_name,level,description,price,start_date,end_date
+1,Kursus Bahasa Inggris Dasar,Dasar,"Pengenalan grammar dasar, vocabulary umum, dan percakapan sehari-hari.",500000,6/1/2025,7/15/2025
+2,Kursus Bahasa Arab Menengah,Menengah,"Pendalaman struktur kalimat, percakapan menengah, dan pemahaman teks.",600000,7/1/2025,8/15/2025
+3,Kursus Persiapan TOEFL ITP,Lanjutan,"Strategi menghadapi tes TOEFL ITP, latihan soal, dan simulasi tes.",750000,8/1/2025,9/15/2025
+4,Kursus Bahasa Indonesia untuk Penutur Asing (BIPA),Dasar,"Pengenalan bahasa Indonesia bagi penutur asing, fokus pada komunikasi dasar.",550000,6/15/2025,7/30/2025
+5,Kursus Bahasa Inggris Profesional,Lanjutan,Pengembangan keterampilan bahasa Inggris untuk keperluan profesional dan akademik.,800000,7/10/2025,8/25/2025
+6,Kursus Bahasa Inggris Intensif,Intensif,"Pembelajaran intensif 4× per minggu, fokus conversation dan listening.",750000,6/5/2025,8/5/2025
+7,Kursus IELTS Preparation,Lanjutan,Strategi dan latihan untuk keperluan sertifikasi IELTS.,900000,7/1/2025,9/1/2025
+8,Kursus Bahasa Jepang Menengah,Menengah,"Lanjutan hiragana/katakana, kanji dasar, dan percakapan.",650000,6/20/2025,8/20/2025
+9,Kursus Bahasa Mandarin Pemula,Dasar,"Pengenalan pinyin, kata-kata dasar, dan ungkapan sehari-hari.",320000,7/10/2025,8/25/2025
+10,Kursus Business English Advanced,Lanjutan,"Business writing, negotiation, dan presentasi profesional.",850000,8/5/2025,10/5/2025
+11,Kursus Bahasa Prancis Dasar,Dasar,"Pengenalan alphabet, grammar dasar, dan percakapan.",400000,6/15/2025,8/1/2025
+12,Kursus TOEFL IBT Preparation,Lanjutan,Latihan soal TOEFL iBT lengkap dengan simulasi waktu nyata.,950000,7/15/2025,9/15/2025
+13,Kursus Bahasa Korea Menengah,Menengah,"Grammar menengah, kosakata, dan diskusi teks sederhana.",550000,6/25/2025,8/25/2025
+14,Kursus Public Speaking Bahasa Arab,Lanjutan,Teknik presentasi dan pidato dalam Bahasa Arab.,700000,7/20/2025,9/20/2025
+15,Kursus Bahasa Jerman Dasar,Dasar,"Pengenalan alphabet, grammar dasar, dan percakapan ringan.",450000,8/1/2025,9/15/2025

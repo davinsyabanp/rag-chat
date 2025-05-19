@@ -1,0 +1,16 @@
+﻿id,category,title,description,price
+1,Terjemahan,Terjemah Ijazah,"Penerjemahan ijazah dari/ke Bahasa Indonesia, Arab, atau Inggris.",75000
+2,Terjemahan,Terjemah Transkrip Nilai,"Penerjemahan transkrip nilai akademik dari/ke Bahasa Indonesia, Arab, atau Inggris.",100000
+3,Terjemahan,Terjemah Abstrak,"Penerjemahan abstrak karya ilmiah dari/ke Bahasa Indonesia, Arab, atau Inggris.",100000
+4,Terjemahan,Terjemah Dokumen Lainnya,"Penerjemahan dokumen umum dari/ke Bahasa Indonesia, Arab, atau Inggris.",150000
+5,Proofreading,Proofreading Dokumen,Pemeriksaan tata bahasa dan struktur kalimat untuk dokumen akademik.,75000
+6,Tes,Tes TOEFL ITP,Penyelenggaraan tes TOEFL ITP untuk mengukur kemampuan bahasa Inggris.,500000
+7,Tes,Tes TOAFL,Penyelenggaraan tes TOAFL untuk mengukur kemampuan bahasa Arab.,500000
+8,Consultasi,Konsultasi Bahasa,Sesi konsultasi untuk pembelajaran dan pengembangan kemampuan bahasa.,100000
+9,Proofreading,Koreksi Materi Pengajaran,"Perbaikan bahan ajar guru (modul, slide) agar sesuai kaidah bahasa.",85000
+10,Dokumen,Penerjemahan Web Content,Terjemahan konten website IDâ†”EN dengan SEO friendly.,120000
+11,Dokumen,Penerjemahan Audio,Transkripsi & terjemahan file audio (ceramah/diskusi).,150000
+12,Pelatihan,Pelatihan Accent Reduction,Latihan mengurangi logat ibu kota agar pengucapan lebih netral.,130000
+13,Pelatihan,Workshop Penulisan Akademik,Pelatihan teknik menulis jurnal dan artikel ilmiah.,200000
+14,Tes,Simulasi Ujian TOAFL,Sesi simulasi TOAFL lengkap dengan koreksi hasil.,550000
+15,Consultasi,Konsultasi Pengembangan Kurikulum,Bimbingan penyusunan kurikulum bahasa berbasis CEFR.,140000
