@@ -82,7 +82,7 @@ class Client(datastore.Client[Config]):
         self,
         services: list[models.Service],
         kursus_list: list[models.Kursus],
-        faqs: list[models.FAQ],
+        faqs: list[models.Faq],
     ) -> None:
         await self.__pg_client.initialize_data(services, kursus_list, faqs)
 
@@ -91,7 +91,7 @@ class Client(datastore.Client[Config]):
     ) -> tuple[
         list[models.Service],
         list[models.Kursus],
-        list[models.FAQ],
+        list[models.Faq],
     ]:
         return await self.__pg_client.export_data()
 
