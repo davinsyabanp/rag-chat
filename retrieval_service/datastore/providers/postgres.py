@@ -75,7 +75,7 @@ class Client(datastore.Client[Config]):
         self,
         services: list[models.Service],
         kursus_list: list[models.Kursus],
-        faqs: list[models.faq],
+        faqs: list[models.Faq],
     ) -> None:
         async with self.__async_engine.connect() as conn:
             await conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
