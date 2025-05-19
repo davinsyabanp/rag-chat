@@ -114,17 +114,17 @@ class Client(datastore.Client[Config]):
     # --- Course ---
     async def get_course_by_id(
         self, id: int
-    ) -> tuple[Optional[models.Course], Optional[str]]:
+    ) -> tuple[Optional[models.Kursus], Optional[str]]:
         return await self.__pg_client.get_course_by_id(id)
 
     async def get_course_by_level(
         self, level: str
-    ) -> tuple[list[models.Course], Optional[str]]:
+    ) -> tuple[list[models.Kursus], Optional[str]]:
         return await self.__pg_client.get_course_by_level(level)
 
     async def courses_search(
         self, query_embedding: list[float], similarity_threshold: float, top_k: int
-    ) -> tuple[list[models.Course], Optional[str]]:
+    ) -> tuple[list[models.Kursus], Optional[str]]:
         return await self.__pg_client.courses_search(
             query_embedding, similarity_threshold, top_k
         )
