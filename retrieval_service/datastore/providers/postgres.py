@@ -193,7 +193,7 @@ class Client(datastore.Client[Config]):
     ) -> tuple[
         list[models.Service],
         list[models.Kursus],
-        list[models.FAQ],
+        list[models.Faq],
     ]:
         async with self.__async_engine.connect() as conn:
             service_task = asyncio.create_task(
