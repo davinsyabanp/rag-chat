@@ -34,7 +34,7 @@ class Kursus(BaseModel):
     description: str
     price: int
     start_date: str  # format: MM/DD/YYYY
-    end_date: str    # format: MM/DD/YYYY
+    end_date: str  # format: MM/DD/YYYY
 
 
 class Faq(BaseModel):

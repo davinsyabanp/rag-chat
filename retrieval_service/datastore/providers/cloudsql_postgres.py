@@ -98,17 +98,23 @@ class Client(datastore.Client[Config]):
     async def search_services(
         self, query_embedding: list[float], similarity_threshold: float, top_k: int
     ) -> tuple[list[Any], Optional[str]]:
-        return await self.__pg_client.search_services(query_embedding, similarity_threshold, top_k)
+        return await self.__pg_client.search_services(
+            query_embedding, similarity_threshold, top_k
+        )
 
     async def search_kursus(
         self, query_embedding: list[float], similarity_threshold: float, top_k: int
     ) -> tuple[list[Any], Optional[str]]:
-        return await self.__pg_client.search_kursus(query_embedding, similarity_threshold, top_k)
+        return await self.__pg_client.search_kursus(
+            query_embedding, similarity_threshold, top_k
+        )
 
     async def search_faqs(
         self, query_embedding: list[float], similarity_threshold: float, top_k: int
     ) -> tuple[list[Any], Optional[str]]:
-        return await self.__pg_client.search_faqs(query_embedding, similarity_threshold, top_k)
+        return await self.__pg_client.search_faqs(
+            query_embedding, similarity_threshold, top_k
+        )
 
     async def close(self):
         await self.__pg_client.close()

@@ -211,13 +211,19 @@ class Client(datastore.Client[Config]):
     ]:
         with self.__pool.connect() as conn:
             service_task = conn.execute(
-                text("""SELECT id, category, title, description, price, vector_to_string(embedding) as embedding FROM services ORDER BY id ASC""")
+                text(
+                    """SELECT id, category, title, description, price, vector_to_string(embedding) as embedding FROM services ORDER BY id ASC"""
+                )
             )
             kursus_task = conn.execute(
-                text("""SELECT id, course_name, level, description, price, start_date, end_date, vector_to_string(embedding) as embedding FROM kursus ORDER BY id ASC""")
+                text(
+                    """SELECT id, course_name, level, description, price, start_date, end_date, vector_to_string(embedding) as embedding FROM kursus ORDER BY id ASC"""
+                )
             )
             faq_task = conn.execute(
-                text("""SELECT id, category, title, description, vector_to_string(embedding) as embedding FROM faqs ORDER BY id ASC""")
+                text(
+                    """SELECT id, category, title, description, vector_to_string(embedding) as embedding FROM faqs ORDER BY id ASC"""
+                )
             )
 
             service_results = (service_task).mappings().fetchall()

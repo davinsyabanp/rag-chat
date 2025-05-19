@@ -263,7 +263,9 @@ class Client(datastore.Client[Config]):
         d["embedding"] = list(d.get("embedding", []))
         return models.Faq.model_validate(d)
 
-    async def search_services(self, query_embedding: list[float], similarity_threshold: float, top_k: int):
+    async def search_services(
+        self, query_embedding: list[float], similarity_threshold: float, top_k: int
+    ):
         query = self.__service_collection.find_nearest(
             vector_field="embedding",
             query_vector=Vector(query_embedding),
@@ -279,7 +281,9 @@ class Client(datastore.Client[Config]):
             results.append(models.Service.model_validate(d))
         return results
 
-    async def search_kursus(self, query_embedding: list[float], similarity_threshold: float, top_k: int):
+    async def search_kursus(
+        self, query_embedding: list[float], similarity_threshold: float, top_k: int
+    ):
         query = self.__kursus_collection.find_nearest(
             vector_field="embedding",
             query_vector=Vector(query_embedding),
@@ -295,7 +299,9 @@ class Client(datastore.Client[Config]):
             results.append(models.Kursus.model_validate(d))
         return results
 
-    async def search_faqs(self, query_embedding: list[float], similarity_threshold: float, top_k: int):
+    async def search_faqs(
+        self, query_embedding: list[float], similarity_threshold: float, top_k: int
+    ):
         query = self.__faq_collection.find_nearest(
             vector_field="embedding",
             query_vector=Vector(query_embedding),

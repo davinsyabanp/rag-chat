@@ -337,7 +337,9 @@ class Client(datastore.Client[Config]):
 
         return services, kursus_list, faqs
 
-    async def search_services(self, query_embedding: list[float], similarity_threshold: float, top_k: int):
+    async def search_services(
+        self, query_embedding: list[float], similarity_threshold: float, top_k: int
+    ):
         with self.__database.snapshot() as snapshot:
             query = """
                 SELECT id, category, title, description, price, embedding
@@ -370,7 +372,9 @@ class Client(datastore.Client[Config]):
             for a in results
         ], query
 
-    async def search_kursus(self, query_embedding: list[float], similarity_threshold: float, top_k: int):
+    async def search_kursus(
+        self, query_embedding: list[float], similarity_threshold: float, top_k: int
+    ):
         with self.__database.snapshot() as snapshot:
             query = """
                 SELECT id, course_name, level, description, price, start_date, end_date, embedding
@@ -403,7 +407,9 @@ class Client(datastore.Client[Config]):
             for a in results
         ], query
 
-    async def search_faqs(self, query_embedding: list[float], similarity_threshold: float, top_k: int):
+    async def search_faqs(
+        self, query_embedding: list[float], similarity_threshold: float, top_k: int
+    ):
         with self.__database.snapshot() as snapshot:
             query = """
                 SELECT id, category, title, description, embedding

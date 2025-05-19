@@ -337,7 +337,9 @@ class Client(datastore.Client[Config]):
 
         return services, kursus_list, faqs
 
-    async def search_services(self, query_embedding: list[float], similarity_threshold: float, top_k: int):
+    async def search_services(
+        self, query_embedding: list[float], similarity_threshold: float, top_k: int
+    ):
         """
         Search for services based on similarity to a query embedding.
 
@@ -381,7 +383,9 @@ class Client(datastore.Client[Config]):
             for a in results
         ], query
 
-    async def search_kursus(self, query_embedding: list[float], similarity_threshold: float, top_k: int):
+    async def search_kursus(
+        self, query_embedding: list[float], similarity_threshold: float, top_k: int
+    ):
         """
         Search for kursus based on similarity to a query embedding.
 
@@ -425,7 +429,9 @@ class Client(datastore.Client[Config]):
             for a in results
         ], query
 
-    async def search_faqs(self, query_embedding: list[float], similarity_threshold: float, top_k: int):
+    async def search_faqs(
+        self, query_embedding: list[float], similarity_threshold: float, top_k: int
+    ):
         """
         Search for faqs based on similarity to a query embedding.
 

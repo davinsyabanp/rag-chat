@@ -166,6 +166,7 @@ async def test_search_services(ds: spanner_postgres.Client):
     assert isinstance(res, list)
     assert sql is not None
 
+
 async def test_search_kursus(ds: spanner_postgres.Client):
     query_embedding = kursus_embedding_1
     similarity_threshold = 0.5
@@ -173,6 +174,7 @@ async def test_search_kursus(ds: spanner_postgres.Client):
     res, sql = await ds.search_kursus(query_embedding, similarity_threshold, top_k)
     assert isinstance(res, list)
     assert sql is not None
+
 
 async def test_search_faqs(ds: spanner_postgres.Client):
     query_embedding = faq_embedding_1

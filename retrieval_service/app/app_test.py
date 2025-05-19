@@ -24,6 +24,7 @@ import models
 
 from . import init_app
 
+
 @pytest.fixture(scope="module")
 def app():
     mock_cfg = MagicMock()
@@ -32,6 +33,7 @@ def app():
     if app is None:
         raise TypeError("app did not initialize")
     return app
+
 
 # =========================
 # FAQ TESTS
@@ -45,21 +47,20 @@ faq_params = [
             id=1,
             category="Pendaftaran",
             title="Bagaimana cara mendaftar kursus?",
-            description="Silakan kunjungi laman pendaftaran di website kami."
+            description="Silakan kunjungi laman pendaftaran di website kami.",
         ),
         {
             "id": 1,
             "category": "Pendaftaran",
             "title": "Bagaimana cara mendaftar kursus?",
-            "description": "Silakan kunjungi laman pendaftaran di website kami."
+            "description": "Silakan kunjungi laman pendaftaran di website kami.",
         },
-        id="faq_by_id"
+        id="faq_by_id",
     ),
 ]
 
-@pytest.mark.parametrize(
-    "method_name, params, mock_return, expected", faq_params
-)
+
+@pytest.mark.parametrize("method_name, params, mock_return, expected", faq_params)
 @patch.object(datastore, "create")
 def test_get_faq(m_datastore, app, method_name, params, mock_return, expected):
     with TestClient(app) as client:
@@ -74,6 +75,7 @@ def test_get_faq(m_datastore, app, method_name, params, mock_return, expected):
     output = res["results"]
     assert output == expected
     assert models.FAQ.model_validate(output)
+
 
 # =========================
 # KURSUS TESTS
@@ -90,7 +92,7 @@ kursus_params = [
             description="Kursus untuk pemula.",
             price=500000,
             start_date="2024-07-01",
-            end_date="2024-08-01"
+            end_date="2024-08-01",
         ),
         {
             "id": 1,
@@ -99,15 +101,14 @@ kursus_params = [
             "description": "Kursus untuk pemula.",
             "price": 500000,
             "start_date": "2024-07-01",
-            "end_date": "2024-08-01"
+            "end_date": "2024-08-01",
         },
-        id="kursus_by_id"
+        id="kursus_by_id",
     ),
 ]
 
-@pytest.mark.parametrize(
-    "method_name, params, mock_return, expected", kursus_params
-)
+
+@pytest.mark.parametrize("method_name, params, mock_return, expected", kursus_params)
 @patch.object(datastore, "create")
 def test_get_kursus(m_datastore, app, method_name, params, mock_return, expected):
     with TestClient(app) as client:
@@ -123,6 +124,7 @@ def test_get_kursus(m_datastore, app, method_name, params, mock_return, expected
     assert output == expected
     assert models.Kursus.model_validate(output)
 
+
 # =========================
 # SERVICE TESTS
 # =========================
@@ -136,22 +138,21 @@ service_params = [
             category="Penerjemahan",
             title="Jasa Penerjemahan Dokumen",
             description="Layanan penerjemahan dokumen resmi.",
-            price=250000
+            price=250000,
         ),
         {
             "id": 1,
             "category": "Penerjemahan",
             "title": "Jasa Penerjemahan Dokumen",
             "description": "Layanan penerjemahan dokumen resmi.",
-            "price": 250000
+            "price": 250000,
         },
-        id="service_by_id"
+        id="service_by_id",
     ),
 ]
 
-@pytest.mark.parametrize(
-    "method_name, params, mock_return, expected", service_params
-)
+
+@pytest.mark.parametrize("method_name, params, mock_return, expected", service_params)
 @patch.object(datastore, "create")
 def test_get_service(m_datastore, app, method_name, params, mock_return, expected):
     with TestClient(app) as client:

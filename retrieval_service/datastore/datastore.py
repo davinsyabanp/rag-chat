@@ -76,14 +76,30 @@ class Client(ABC, Generic[C]):
         faqs_new_path,
     ) -> None:
         with open(services_new_path, "w") as f:
-            col_names = ["id", "name", "description", "category", "hour", "content", "embedding"]
+            col_names = [
+                "id",
+                "name",
+                "description",
+                "category",
+                "hour",
+                "content",
+                "embedding",
+            ]
             writer = csv.DictWriter(f, col_names, delimiter=",")
             writer.writeheader()
             for a in services:
                 writer.writerow(a.model_dump())
 
         with open(kursus_new_path, "w") as f:
-            col_names = ["id", "name", "description", "duration", "price", "content", "embedding"]
+            col_names = [
+                "id",
+                "name",
+                "description",
+                "duration",
+                "price",
+                "content",
+                "embedding",
+            ]
             writer = csv.DictWriter(f, col_names, delimiter=",")
             writer.writeheader()
             for a in kursus_list:
@@ -126,9 +142,7 @@ class Client(ABC, Generic[C]):
         raise NotImplementedError("Subclass should implement this!")
 
     @abstractmethod
-    async def get_kursus_by_id(
-        self, id: int
-    ) -> tuple[Optional[Kursus], Optional[str]]:
+    async def get_kursus_by_id(self, id: int) -> tuple[Optional[Kursus], Optional[str]]:
         raise NotImplementedError("Subclass should implement this!")
 
     @abstractmethod
@@ -140,9 +154,7 @@ class Client(ABC, Generic[C]):
         raise NotImplementedError("Subclass should implement this!")
 
     @abstractmethod
-    async def get_faq_by_id(
-        self, id: int
-    ) -> tuple[Optional[Faq], Optional[str]]:
+    async def get_faq_by_id(self, id: int) -> tuple[Optional[Faq], Optional[str]]:
         raise NotImplementedError("Subclass should implement this!")
 
     @abstractmethod
