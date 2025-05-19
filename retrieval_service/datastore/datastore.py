@@ -172,7 +172,6 @@ async def create(config: AbstractConfig) -> Client:
     for cls in Client.__subclasses__():
         if config.kind == cls.kind:
             client = await cls.create(config)  # type: ignore
-            # Inisialisasi tabel baru
-            await client.create_tables()
+
             return client
     raise TypeError(f"No clients of kind '{config.kind}'")
