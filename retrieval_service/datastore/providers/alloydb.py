@@ -78,122 +78,20 @@ class Client(datastore.Client[Config]):
 
     async def initialize_data(
         self,
-        airports: list[models.Airport],
-        amenities: list[models.Amenity],
-        flights: list[models.Flight],
-        policies: list[models.Policy],
+        services: list[models.Service],
+        kursus: list[models.Kursus],
+        faqs: list[models.Faq],
     ) -> None:
-        await self.__pg_client.initialize_data(airports, amenities, flights, policies)
+        await self.__pg_client.initialize_data(services, kursus, faqs)
 
     async def export_data(
         self,
     ) -> tuple[
-        list[models.Airport],
-        list[models.Amenity],
-        list[models.Flight],
-        list[models.Policy],
+        list[models.Service],
+        list[models.Kursus],
+        list[models.Faq],
     ]:
         return await self.__pg_client.export_data()
-
-    async def get_airport_by_id(
-        self, id: int
-    ) -> tuple[Optional[models.Airport], Optional[str]]:
-        return await self.__pg_client.get_airport_by_id(id)
-
-    async def get_airport_by_iata(
-        self, iata: str
-    ) -> tuple[Optional[models.Airport], Optional[str]]:
-        return await self.__pg_client.get_airport_by_iata(iata)
-
-    async def search_airports(
-        self,
-        country: Optional[str] = None,
-        city: Optional[str] = None,
-        name: Optional[str] = None,
-    ) -> tuple[list[models.Airport], Optional[str]]:
-        return await self.__pg_client.search_airports(country, city, name)
-
-    async def get_amenity(
-        self, id: int
-    ) -> tuple[Optional[models.Amenity], Optional[str]]:
-        return await self.__pg_client.get_amenity(id)
-
-    async def amenities_search(
-        self, query_embedding: list[float], similarity_threshold: float, top_k: int
-    ) -> tuple[list[Any], Optional[str]]:
-        return await self.__pg_client.amenities_search(
-            query_embedding, similarity_threshold, top_k
-        )
-
-    async def get_flight(
-        self, flight_id: int
-    ) -> tuple[Optional[models.Flight], Optional[str]]:
-        return await self.__pg_client.get_flight(flight_id)
-
-    async def search_flights_by_number(
-        self,
-        airline: str,
-        number: str,
-    ) -> tuple[list[models.Flight], Optional[str]]:
-        return await self.__pg_client.search_flights_by_number(airline, number)
-
-    async def search_flights_by_airports(
-        self,
-        date: str,
-        departure_airport: Optional[str] = None,
-        arrival_airport: Optional[str] = None,
-    ) -> tuple[list[models.Flight], Optional[str]]:
-        return await self.__pg_client.search_flights_by_airports(
-            date, departure_airport, arrival_airport
-        )
-
-    async def validate_ticket(
-        self,
-        airline: str,
-        flight_number: str,
-        departure_airport: str,
-        departure_time: str,
-    ) -> tuple[Optional[models.Flight], Optional[str]]:
-        return await self.__pg_client.validate_ticket(
-            airline, flight_number, departure_airport, departure_time
-        )
-
-    async def insert_ticket(
-        self,
-        user_id: str,
-        user_name: str,
-        user_email: str,
-        airline: str,
-        flight_number: str,
-        departure_airport: str,
-        arrival_airport: str,
-        departure_time: str,
-        arrival_time: str,
-    ):
-        await self.__pg_client.insert_ticket(
-            user_id,
-            user_name,
-            user_email,
-            airline,
-            flight_number,
-            departure_airport,
-            arrival_airport,
-            departure_time,
-            arrival_time,
-        )
-
-    async def list_tickets(
-        self,
-        user_id: str,
-    ) -> tuple[list[Any], Optional[str]]:
-        return await self.__pg_client.list_tickets(user_id)
-
-    async def policies_search(
-        self, query_embedding: list[float], similarity_threshold: float, top_k: int
-    ) -> tuple[list[str], Optional[str]]:
-        return await self.__pg_client.policies_search(
-            query_embedding, similarity_threshold, top_k
-        )
 
     # --- Service ---
     async def get_service_by_id(
