@@ -51,17 +51,17 @@ class Client(ABC, Generic[C]):
         self, services_path, kursus_path, faq_path
     ) -> tuple[List[Service], List[Kursus], List[Faq]]:
         services: List[Service] = []
-        with open(services_path, "r") as f:
+        with open(services_path, "r", encoding="utf-8-sig") as f:
             reader = csv.DictReader(f, delimiter=",")
             services = [Service.model_validate(line) for line in reader]
 
         kursus_list: List[Kursus] = []
-        with open(kursus_path, "r") as f:
+        with open(kursus_path, "r", encoding="utf-8-sig") as f:
             reader = csv.DictReader(f, delimiter=",")
             kursus_list = [Kursus.model_validate(line) for line in reader]
 
         faqs: List[Faq] = []
-        with open(faq_path, "r") as f:
+        with open(faq_path, "r", encoding="utf-8-sig") as f:
             reader = csv.DictReader(f, delimiter=",")
             faqs = [Faq.model_validate(line) for line in reader]
         return services, kursus_list, faqs
