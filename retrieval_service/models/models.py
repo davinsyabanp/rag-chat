@@ -37,7 +37,7 @@ class Kursus(BaseModel):
     end_date: str    # format: MM/DD/YYYY
 
 
-class FAQ(BaseModel):
+class Faq(BaseModel):
     id: int
     category: str
     title: str
