@@ -75,7 +75,7 @@ class Client(datastore.Client[Config]):
         self,
         services: list[models.Service],
         kursus_list: list[models.Kursus],
-        faqs: list[models.Faq],
+        faqs: list[models.Faq],  # perbaikan: gunakan Faq, bukan FAQ
     ) -> None:
         async with self.__async_engine.connect() as conn:
             await conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
@@ -193,7 +193,7 @@ class Client(datastore.Client[Config]):
     ) -> tuple[
         list[models.Service],
         list[models.Kursus],
-        list[models.Faq],
+        list[models.Faq],  # perbaikan: gunakan Faq, bukan FAQ
     ]:
         async with self.__async_engine.connect() as conn:
             service_task = asyncio.create_task(
@@ -212,7 +212,7 @@ class Client(datastore.Client[Config]):
 
             services = [models.Service.model_validate(s) for s in service_results]
             kursus_list = [models.Kursus.model_validate(k) for k in kursus_results]
-            faqs = [models.FAQ.model_validate(f) for f in faq_results]
+            faqs = [models.Faq.model_validate(f) for f in faq_results]  # perbaikan: gunakan Faq, bukan FAQ
 
             return services, kursus_list, faqs
 
