@@ -195,5 +195,59 @@ class Client(datastore.Client[Config]):
             query_embedding, similarity_threshold, top_k
         )
 
+    # --- Service ---
+    async def get_service_by_id(
+        self, id: int
+    ) -> tuple[Optional[models.Service], Optional[str]]:
+        return await self.__pg_client.get_service_by_id(id)
+
+    async def get_service_by_category(
+        self, category: str
+    ) -> tuple[list[models.Service], Optional[str]]:
+        return await self.__pg_client.get_service_by_category(category)
+
+    async def services_search(
+        self, query_embedding: list[float], similarity_threshold: float, top_k: int
+    ) -> tuple[list[models.Service], Optional[str]]:
+        return await self.__pg_client.services_search(
+            query_embedding, similarity_threshold, top_k
+        )
+
+    # --- Course ---
+    async def get_course_by_id(
+        self, id: int
+    ) -> tuple[Optional[models.Course], Optional[str]]:
+        return await self.__pg_client.get_course_by_id(id)
+
+    async def get_course_by_level(
+        self, level: str
+    ) -> tuple[list[models.Course], Optional[str]]:
+        return await self.__pg_client.get_course_by_level(level)
+
+    async def courses_search(
+        self, query_embedding: list[float], similarity_threshold: float, top_k: int
+    ) -> tuple[list[models.Course], Optional[str]]:
+        return await self.__pg_client.courses_search(
+            query_embedding, similarity_threshold, top_k
+        )
+
+    # --- FAQ ---
+    async def get_faq_by_id(
+        self, id: int
+    ) -> tuple[Optional[models.Faq], Optional[str]]:
+        return await self.__pg_client.get_faq_by_id(id)
+
+    async def get_faq_by_category(
+        self, category: str
+    ) -> tuple[list[models.Faq], Optional[str]]:
+        return await self.__pg_client.get_faq_by_category(category)
+
+    async def faqs_search(
+        self, query_embedding: list[float], similarity_threshold: float, top_k: int
+    ) -> tuple[list[models.Faq], Optional[str]]:
+        return await self.__pg_client.faqs_search(
+            query_embedding, similarity_threshold, top_k
+        )
+
     async def close(self):
         await self.__pg_client.close()
